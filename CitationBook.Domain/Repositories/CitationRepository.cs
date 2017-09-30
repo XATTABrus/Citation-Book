@@ -49,7 +49,7 @@ namespace CitationBook.Domain.Repositories
         {
             var sqlQuery = "UPDATE Citations SET " +
                             "Text = @Text, Author = @Author, " +
-                            "CreateDate = @CreateDate, CategoryId = @CategoryId " +
+                            "CategoryId = @CategoryId " +
                             "WHERE Id = @Id";
 
             _dbConnection.Execute(sqlQuery, item);

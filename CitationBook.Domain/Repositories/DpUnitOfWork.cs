@@ -10,6 +10,8 @@ namespace CitationBook.Domain.Repositories
     {
         private IDbConnection db;
         private CitationRepository citationRepository;
+        private CategoryRepository categoryRepository;
+        
 
         public DpUnitOfWork(string connectionString)
         {
@@ -23,6 +25,16 @@ namespace CitationBook.Domain.Repositories
                 if (citationRepository == null)
                     citationRepository = new CitationRepository(db);
                 return citationRepository;
+            }
+        }
+
+        public IRepository<Category> Categories
+        {
+            get
+            {
+                if (categoryRepository == null)
+                    categoryRepository = new CategoryRepository(db);
+                return categoryRepository;
             }
         }
 

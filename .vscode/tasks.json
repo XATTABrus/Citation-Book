@@ -1,12 +1,26 @@
 {
     "version": "0.1.0",
-    "command": "dotnet",
+    //"command": "dotnet",
+    "command": "cmd",
     "isShellCommand": true,
     "args": [],
     "tasks": [
         {
             "taskName": "build",
             "args": [
+                "${workspaceRoot}/CitationBook.Tests/CitationBook.Tests.csproj"
+            ],
+            "isBuildCommand": true,
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "test",
+            "args": [
+                "/C",
+                "@chcp 65001",
+                "&&",
+                "dotnet",
+                "test",
                 "${workspaceRoot}/CitationBook.Tests/CitationBook.Tests.csproj"
             ],
             "isBuildCommand": true,
